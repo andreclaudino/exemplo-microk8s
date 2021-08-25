@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exemplo
+spec:
+  selector:
+    matchLabels:
+      role: exemplo-backend
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        role: exemplo-backend
+    spec:
+      containers:
+      - name: exemplo
+        image: nginx
+        ports:
+        - containerPort: 80
